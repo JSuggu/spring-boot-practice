@@ -90,22 +90,22 @@ public class CustomerController {
 
     //CIRCUIT BREAKER METHODS
     private ResponseEntity<List<Car>> fallBackGetCars (@PathVariable("userId") int userId, RuntimeException e){
-        return new ResponseEntity("El usuario " + userId + "tiene los coches en el taller", HttpStatus.OK);
+        return new ResponseEntity("El usuario " + userId + " tiene los coches en el taller", HttpStatus.OK);
     }
 
     private ResponseEntity<Car> fallBackSaveCar (@PathVariable("userId") int userId, @RequestBody Car car, RuntimeException e){
-        return new ResponseEntity("El usuario " + userId + "no tiene direno para coches", HttpStatus.OK);
+        return new ResponseEntity("El usuario " + userId + " no tiene direno para coches", HttpStatus.OK);
     }
 
-    private ResponseEntity<List<Bike>> fallBackSaveBikes (@PathVariable("userId") int userId, RuntimeException e){
-        return new ResponseEntity("El usuario " + userId + "tiene las bicis en el taller", HttpStatus.OK);
+    private ResponseEntity<List<Bike>> fallBackGetBikes (@PathVariable("userId") int userId, RuntimeException e){
+        return new ResponseEntity("El usuario " + userId + " tiene las bicis en el taller", HttpStatus.OK);
     }
 
-    private ResponseEntity<Bike> fallBackSaveBike (@PathVariable("userId") int userId, @RequestBody Bike bike, ResponseEntity e){
-        return new ResponseEntity("El usuario " + userId + "no tiene dinero para bicis", HttpStatus.OK);
+    private ResponseEntity<Bike> fallBackSaveBike (@PathVariable("userId") int userId, @RequestBody Bike bike, RuntimeException e){
+        return new ResponseEntity("El usuario " + userId + " no tiene dinero para bicis", HttpStatus.OK);
     }
 
-    private ResponseEntity<Map<String, Object>> getAllVehicles(@PathVariable("userId") int userId, RuntimeException e){
+    private ResponseEntity<Map<String, Object>> fallBackGetAllVehicles(@PathVariable("userId") int userId, RuntimeException e){
         return new ResponseEntity("El usuario " + userId + " tiene los vehiculos en el taller", HttpStatus.OK);
     }
 
