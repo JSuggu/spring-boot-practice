@@ -10,13 +10,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class UserSecurity {
+public class CustomerSecurity {
 
     @Bean
-    protected void configure(HttpSecurity http) throws Exception{
-        http.authorizeRequests().anyRequest().authenticated()
+    public String createToken(HttpSecurity http) throws Exception{
+        return http.authorizeRequests().anyRequest().authenticated()
                 .and()
-                .oauth2ResourceServer().jwt();
+                .oauth2ResourceServer().jwt().toString();
     }
 
 }

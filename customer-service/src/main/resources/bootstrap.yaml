@@ -7,4 +7,8 @@ spring:
       uri: http://localhost:8081
     compatibility-verifier:
       enabled: false
-
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: http://localhost:100/realms/tutorial-realm
